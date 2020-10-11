@@ -1,0 +1,34 @@
+
+<!--<script src="logbg.js"></script>-->
+
+<div class="container" id="bg">
+
+ <!-- <img src="bg.jpg" id="bg" alt=""> -->
+<div class="card card-text col-sm-5 col-xs-11">
+ <div class="login-box col-xs-11">
+  <h1 class="textbox-head" >Login</h1>
+  <div class="textbox">
+    <i class="fas fa-user"></i>
+    <input type="text" placeholder="Email" [(ngModel)]="userLogin.email" name="email" id="email">
+  </div>
+
+  <div class="textbox">
+    <i class="fas fa-lock"></i>
+    <input type="password" placeholder="Password" [(ngModel)]="userLogin.password" name="password" id="password">
+  </div>
+   <div>
+  <input type="button" class="btn1"  value="Sign in" (click)="loginNow()"></div>
+  <div class="or">OR</div>
+  <input type="button" class="btn2"  value="Register" routerLink="/register" routerLinkActive="active">
+  <input type="button" class="btn3" value="Login with Google" (click)="regirectGoogle()">
+
+  </div>
+</div>
+
+  <router-outlet *ngIf="routerException==true">
+
+  </router-outlet>
+
+</div>
+
+  

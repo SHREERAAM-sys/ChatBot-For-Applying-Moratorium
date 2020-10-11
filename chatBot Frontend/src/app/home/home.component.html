@@ -1,0 +1,56 @@
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" >Online Banking</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#" routerLink="/home" routerLinkActive="active">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Transfer</a>
+        </li>
+       
+        <li class="nav-item">
+          <a class="nav-link " href="#" routerLink="/admin/login" routerLinkActive="active">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+<div id="bg">
+    <!--{{message.firstname}}
+    {{message.lastname}}
+    {{message.accno}}-->
+
+    <div class="card card-text w-75 h-40 mx-auto">
+        <div class="card-body">
+          <h5 class="card-title w3-animate-top">Welcome {{message.firstname}}  {{message.lastname}}</h5>
+          <!--<p class="card-text"></p>-->
+       
+            <div class="card-indi w3-animate-top" style="left:77px;">  Account Number:        {{message.accno}} </div>
+
+            <div class="card-indi w3-animate-top" style="left:77px;">  Account Holder Name:   {{message.firstname}}  {{message.lastname}} </div>
+
+             <div class="card-indi w3-animate-top" style="left:77px;"> Mobile Number:         {{message.phnumber}} </div>          
+         <div style="text-align: center;" class="optional w3-animate-bottom">
+             <p *ngIf="message.applied==true&&message.chatbotconvo==false"   [routerLink]="['/botApplication']" routerLinkActive="router-link-active"  class="link">You have Applied for moratorium,Please click here </p>
+
+          <p *ngIf="message.chatbotconvo==true&&message.adminVerified==false" class="link2">Your moratorium application is on process you will be notified after the verification</p>
+          
+          <p *ngIf="message.chatbotconvo==true&&message.adminVerified==true&&message.adminApproval==true" class="link2" style="color: green;">Your moratorium have been granted moratorium</p>
+          
+          <p *ngIf="message.chatbotconvo==true&&message.adminVerified==true&&message.adminApproval==false" class="link2" style="color:red;">Sorry,Your moratorium application has been declined</p>
+
+        </div>
+        </div>
+      </div>
+
+      <div *ngIf="message.adminVerified==true&&message.adminApproval"></div>
+
+    <router-outlet *ngIf="routerException==true">
+    </router-outlet >
+</div>
+
+
+
