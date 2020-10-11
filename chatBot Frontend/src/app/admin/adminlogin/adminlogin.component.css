@@ -1,0 +1,28 @@
+.btn2{
+ top:43%;
+ left:27%;
+ position:absolute;
+ 
+}
+
+.card{
+    height:20%;
+    width:30%;
+    background-color: white;
+    top:35%;
+    left:35%;
+    
+    opacity:0.9;
+}
+#bg{
+
+    width: 100%;
+    height: 100%;
+    height:100vh;
+    background-image: url("bg.jpg");
+    opacity: 0.8;
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    
+  }

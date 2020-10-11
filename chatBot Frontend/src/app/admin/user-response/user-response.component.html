@@ -1,0 +1,65 @@
+
+<div id="bg">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" ><b>Admin Dashboard</b></a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#" routerLink="/admin/home" routerLinkActive="active">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#" routerLink="/admin/user/response" routerLinkActive="active" >User Responses</a>
+            </li>
+           
+            <li class="nav-item active">
+              <a class="nav-link " href="#"  routerLink="/admin/login" routerLinkActive="active">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    <div *ngFor='let resp of response' class="card  h-20 mx-auto mt-5 " >
+    
+    <div style="text-align:center">
+    <b>{{resp.email}}</b>
+    </div>
+    
+  <!-- <div *ngIf="resp.adminVerified==false" > -->
+    <div class="responses">
+    
+      {{resp.question_1}} <br>
+      <div class="res">{{resp.response_1}}</div>
+      
+	
+    <hr>
+    {{resp.question_2}}<br><div class="res">{{resp.response_2}}</div>
+    <hr>
+    {{resp.question_3}}<br><div class="res">{{resp.response_3}}</div>
+    <hr>
+    {{resp.question_4}}<br><div class="res">{{resp.response_4}}</div>
+    <hr>
+    {{resp.question_5}}<br><div class="res">{{resp.response_5}}</div>
+    <hr>
+    {{resp.question_6}}<br><div class="res">{{resp.response_6}}</div>
+    <hr>
+    <div class="text-center"  *ngIf="resp.adminVerified==false" >
+        <input type="button" class="btn-dark mx-lt bt1" value="Approve" (click)="approve(resp.email)">
+        <input type="button" class="btn-dark ml-auto bt2" value="Decline" (click)="decline(resp.email)">
+    </div>
+    <br>
+    </div>
+
+    <div *ngIf="resp.adminVerified==true" >
+
+        <div class="text-center" *ngIf="resp.adminApproval==true" style="color:green">
+            Moratorium is approved to this user
+        </div>
+        <div class="text-center" *ngIf="resp.adminApproval==false" style="color:red">
+            Moratorium is declined to this user
+        </div>
+    </div>
+   
+    </div>
+
+</div>
+
