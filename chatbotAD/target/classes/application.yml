@@ -1,0 +1,30 @@
+spring:
+    datasource:
+        url: mongodb://localhost:3306/spring_social?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
+        username: root
+        password: callicoder
+        
+    security:
+      oauth2:
+        client:
+          registration:
+            google:
+              clientId: 1024172356772-lmnmals64dd3glte1um7uegkrlb8jb40.apps.googleusercontent.com
+              clientSecret: kLOpAOmK-5QB3ToIRaT36hI1
+              redirectUri: "{baseUrl}/oauth2/callback/{registrationId}"
+              scope:
+                - email
+                - profile
+app:
+  auth:
+    tokenSecret: 926D96C90030DD58429D2751AC1BDBBC
+    tokenExpirationMsec: 864000000
+  oauth2:
+    # After successfully authenticating with the OAuth2 Provider,
+    # we'll be generating an auth token for the user and sending the token to the
+    # redirectUri mentioned by the client in the /oauth2/authorize request.
+    # We're not using cookies because they won't work well in mobile clients.
+    authorizedRedirectUris:
+      - http://localhost:4200/adminOauth2/redirect
+      - myandroidapp:/adminOauth2/redirect
+      - myiosapp://adminOauth2/redirect
